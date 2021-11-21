@@ -20,7 +20,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NextStax/core.git"
+    "url": "git+https://github.com/NextStax/nextstax.git"
   },
   "keywords": [
     "nextstax",
@@ -29,9 +29,9 @@
   "author": "Kenny Stanley (https://github.com/KennyStanley)",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/NextStax/core/issues"
+    "url": "https://github.com/NextStax/nextstax/issues"
   },
-  "homepage": "https://github.com/NextStax/core#readme",
+  "homepage": "https://github.com/NextStax/nextstax#readme",
   "devDependencies": {
     "@types/fetch-mock": "^7.3.5",
     "@types/jest": "^27.0.2",
