@@ -1,4 +1,4 @@
-# NextStax API Package Documentation
+# NextStax API NPM Package Documentation
 
 The NextStax API Package is a convenient tool for developers to interact with the NextStax API programmatically. It provides a set of methods that allow you to perform various operations on NextStax projects, templates, repositories, and more.
 
