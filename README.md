@@ -51,12 +51,11 @@ Get your API keys via nextstax.com.
 `const apiKey = 'YOUR_API_KEY';`
 `const nextStax = new NextStax(apiKey);`
 
-### EXAMPLE USE
+### EXAMPLE 
 
 ```const projects = await nextstax.getProjects()```
 
-#Usage
-
+## Usage
 The NextStax API package provides methods to interact with the NextStax API. Here are the available methods:
 
 ```getProjects()
@@ -144,8 +143,8 @@ const success = await nextStax.restartProject(projectId);
 console.log(success);
 ```
 
-```updateProjectDomain(projectId, domain)```
-# Updates the domain of a project.
+updateProjectDomain(`projectId`, `domain`)
+## Updates the domain of a project.
 
 Parameters:
 
@@ -159,6 +158,6 @@ const domain = 'example.com';
 const success = await nextStax.updateProjectDomain(projectId, domain);
 console.log(success);
 ```
-#Notes
+## Notes
 All methods are asynchronous and return Promises.
 Errors are logged to the console. Make sure to handle errors appropriately in your code.
