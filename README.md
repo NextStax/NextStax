@@ -18,7 +18,7 @@ To use the NextStax API package in your Javascript project, follow these steps:
 
 ### 1: Install the package using npm:
 
-`npm install nextstax-api`
+`npm install nextstax`
 
 ### 2: Import the package in your code:
 
