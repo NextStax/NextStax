@@ -14,150 +14,122 @@ The NextStax API allows you to manage your NextStax projects, templates, and Git
 - Repository Management: Get a list of Git repositories associated with the user.
 
 ## Installation:
-To use the NextStax API package in your Javascript project, follow these steps:
+To use the NextStax API package in your Javascript/Typescript project, follow these steps:
 
-### 1: Install the package using npm:
+### 1: Get your API key via nextstax.com
+
+### 1: Add to or create a .env file with your NextStax API key and droplet id 
+```sh
+# .env
+API_KEY="12345"
+DROPLET_ID="00-abcd.vce.oneclickwebapps.com"
+```
+
+### 2: Install the package using npm:
 
 `npm install nextstax`
 
-### 2: Import the package in your code:
+### 3: Create your index.js file
 
-```import NextStax from 'nextstax'```
+```ts
+// index.js / index.ts
 
-### Instantiate the nextstax class.
+// Import the package in your code
+import NextStax from 'nextstax'
 
-```
-const apiKey = 'key'
+// Get your env variables
+const apiKey = process.env['API_KEY']
+const dropletId = process.env['DROPLET_ID']
 
-const dropletId = 'id'
-
+// Instantiate the nextstax class
 const nextstax = new NextStax(apiKey, dropletId)
 ```
-
-### .env  examples  
-**Note You need to make a ```.env``` with these**
-
-```
-## Account-Generated
-APIKEY=JLSKJAFH:AJKDLHAOIW
-## deploy-to-machine-ip
-dropletId=192.168.0.000
-```
-
-Get your API keys via nextstax.com.
-
-3: Set NextStax class with your API key:
-
-`const apiKey = 'YOUR_API_KEY';`
-`const nextStax = new NextStax(apiKey);`
-
-### EXAMPLE 
-
-```const projects = await nextstax.getProjects()```
+---
 
 ## Usage
 The NextStax API package provides methods to interact with the NextStax API. Here are the available methods:
 
-```getProjects()
-``` 
+### getProjects()
 Retrieves a list of projects associated with the authenticated user.
-Example:
-```const projects = await nextStax.getProjects();
-console.log(projects);
-````
 
-```getTemplates```()
+```ts
+const projects = await nextStax.getProjects();
+console.log(projects);
+```
+---
+
+### getTemplates()
 Retrieves a list of template projects associated with the authenticated user.
 
-Example:
-```
+```ts
 const templates = await nextStax.getTemplates();
 console.log(templates);
 ```
+---
 
-```getProjectStatus```(projectId)
+### getProjectStatus(projectId: string)
 Retrieves the status of a specific project.
 
-Parameters:
-```projectId``` (string): The ID of the project.
-
-Example:
-
-```
+```ts
 const projectId = 'PROJECT_ID';
 const status = await nextStax.getProjectStatus(projectId);
 console.log(status);
 ```
+---
 
-```createProject(newProject)
-```
+### createProject(newProject: object) 
+Creates a new project.
 
-#Creates a new project.
-Parameters:
-```newProject``` (object): The project configuration object.
-
-Example:
-```
+```ts
 const newProject = {
   name: 'New Project',
   // Add other required project configuration properties
 };
-```
 const projectId = await nextStax.createProject(newProject);
 console.log(projectId);
-
-```deleteProject(projectId)```
-
-#Deletes a project from your nexstax
-
-Parameters:
-
-```projectId``` (string): The ID of the project to delete.
-Example:
-
-```const projectId = 'PROJECT_ID';
-const success = await nextStax.deleteProject(projectId);
-console.log(success);```
-
-
-```getRepos()
 ```
+---
+
+### deleteProject(projectId: string) 
+Deletes a project from your nexstax
+
+```ts
+const projectId = 'PROJECT_ID';
+const success = await nextStax.deleteProject(projectId);
+console.log(success);
+```
+---
+
+### getRepos() 
 Retrieves a list of Git repositories associated with the authenticated user.
 
-Example:
-
-```
+```ts
 const repos = await nextStax.getRepos();
 console.log(repos);
-restartProject(projectId)
+```
+---
+
+### restartProject(projectId: string)
 Restarts a project.
-```
 
-Parameters:
-```projectId``` (string): The ID of the project to restart.
-
-```
-Example:
-const projectId = ```'PROJECT_ID';```
+```ts
+const projectId = 'PROJECT_ID';
 const success = await nextStax.restartProject(projectId);
 console.log(success);
 ```
+---
 
-updateProjectDomain(`projectId`, `domain`)
-## Updates the domain of a project.
+### updateProjectDomain(projectId: string, newDomain: string)
+Updates the domain of a project.
 
-Parameters:
-
-```projectId``` (string): The ID of the project to update.
-```domain``` (string): The new domain for the project.
-
-Example:
-```
+```ts
 const projectId = 'PROJECT_ID';
-const domain = 'example.com';
-const success = await nextStax.updateProjectDomain(projectId, domain);
+const newDomain = 'example.com';
+const success = await nextStax.updateProjectDomain(projectId, newDomain);
 console.log(success);
 ```
+---
+
 ## Notes
 All methods are asynchronous and return Promises.
 Errors are logged to the console. Make sure to handle errors appropriately in your code.
