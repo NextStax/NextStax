@@ -1,6 +1,6 @@
 import axios, { AxiosRequestHeaders } from 'axios'
 import { Project, ProjectConfig } from './types'
-export * from "./types.d"
+export * from "./types"
 
 export const BASE_URL = 'https://oneclickwebapps.com/v2/api'
 
